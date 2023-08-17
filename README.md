@@ -12,6 +12,9 @@ cd rustboy
 cargo build --release
 ```
 
+## Test ROMs
+https://github.com/c-sp/gameboy-test-roms
+
 ## Learning resources
 
 * https://en.wikipedia.org/wiki/Game_Boy
