@@ -14,15 +14,20 @@ cargo build --release
 
 ## Learning resources
 
+* https://en.wikipedia.org/wiki/Game_Boy
+
 ### GameBoy emulator development
+* https://youtu.be/B7seNuQncvU
+* https://youtu.be/HyzD8pNlpwI
 * https://rylev.github.io/DMG-01
-* https://bgb.bircd.org/pandocs.htm
-* https://gbdev.gg8.se/wiki/articles/Main_Page
-* https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
-* https://imrannazar.com/GameBoy-Emulation-in-JavaScript:-The-CPU
+* https://gbdev.io/
+* https://gbdev.io/resources.html
+* https://gbdev.io/gb-opcodes/optables/
 
 ### Rust resources
-+ https://doc.rust-lang.org/stable/book/
+* https://doc.rust-lang.org/stable/book
+* https://doc.rust-lang.org/rust-by-example
+* https://www.zero2prod.com
 
 ## License
 RustBoy is free, open source and permissively licensed! Except where noted (below and/or in individual files), all code in this repository is dual-licensed under either:
