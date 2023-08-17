@@ -35,7 +35,7 @@ impl Rom {
 mod tests {
     use super::*;
     #[test]
-    fn loading_rom_from_file(){
+    fn loading_rom_from_file() {
         let rom = Rom::load_from_file("roms/cpu_instrs.gb");
         assert!(rom.is_ok());
     }
