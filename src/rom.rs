@@ -30,3 +30,20 @@ impl Rom {
         Ok(title)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn loading_rom_from_file(){
+        let rom = Rom::load_from_file("roms/cpu_instrs.gb");
+        assert!(rom.is_ok());
+    }
+
+    #[test]
+    fn title_parsing() {
+        let rom = Rom::load_from_file("roms/cpu_instrs.gb").unwrap();
+        let title = rom.title().unwrap();
+        assert_eq!(title, "CPU_INSTRS")
+    }
+}
