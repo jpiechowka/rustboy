@@ -8,13 +8,6 @@ license = "MIT OR Apache-2.0"
 description = "RustBoy is a GameBoy emulator written in Rust"
 readme = "README.md"
 
-[lib]
-path = "src/lib.rs"
-
-[[bin]]
-path = "src/main.rs"
-name = "rustboy"
-
 [dependencies]
 anyhow = "1.0.75"
 env_logger = "0.10.0"
