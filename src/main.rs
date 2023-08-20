@@ -1,6 +1,10 @@
+mod cpu;
+mod opcodes;
+mod rom;
+
 use env_logger::Builder;
 use log::{debug, error, info, LevelFilter};
-use rustboy::rom::Rom;
+use rom::Rom;
 
 const ROM_FILEPATH: &str = "roms/cpu_instrs.gb";
 

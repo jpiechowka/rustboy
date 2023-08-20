@@ -6,10 +6,6 @@ pub struct Rom {
     raw_content: Vec<u8>,
 }
 
-pub enum RomError {
-    TitleParsingError,
-}
-
 impl Rom {
     pub fn load_from_file(filepath: &str) -> Result<Rom> {
         let rom = Rom {
@@ -34,6 +30,7 @@ impl Rom {
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
     fn loading_rom_from_file() {
         let rom = Rom::load_from_file("roms/cpu_instrs.gb");
