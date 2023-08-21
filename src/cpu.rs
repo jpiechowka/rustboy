@@ -25,7 +25,7 @@ impl CPU {
                 self.execute(opcode)
             } else {
                 // TODO: panic instead of logging error?
-                let msg = format!("0x{}{:x}", if is_prefixed { "cb" } else { "" }, opcode_byte);
+                let msg = format!("0x{}{:x}", if is_prefixed { "CB" } else { "" }, opcode_byte);
                 error!("Encountered unknown opcode for: {}", msg);
                 warn!(
                     "Incrementing program counter (current val: {}) by 1 and proceeding",
@@ -55,6 +55,25 @@ impl CPU {
                 ArithmeticTarget::L => {}
             },
         }
+    }
+
+    fn push_stack(&mut self, value: u16) -> u16 {
+        self.sp = self.sp.wrapping_sub(1);
+        self.memory_bus
+            .write_byte(self.sp, ((value & 0xFF00) >> 8) as u8);
+
+        self.sp = self.sp.wrapping_sub(1);
+        self.memory_bus.write_byte(self.sp, (value & 0xFF) as u8);
+    }
+
+    fn pop_stack(&mut self) -> u16 {
+        let lsb = self.memory_bus.read_byte(self.sp) as u16;
+        self.sp = self.sp.wrapping_add(1);
+
+        let msb = self.memory_bus.read_byte(self.sp) as u16;
+        self.sp = self.sp.wrapping_add(1);
+
+        (msb << 8) | lsb
     }
 
     fn add(&mut self, value: u8) -> u8 {
