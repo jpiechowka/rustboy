@@ -1,3 +1,4 @@
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FlagsRegister {
     // set to true if the result of the operation is equal to 0. Used by conditional jumps
     pub zero: bool,
