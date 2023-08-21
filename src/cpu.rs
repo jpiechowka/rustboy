@@ -1,3 +1,5 @@
+use log::{error, warn};
+
 use crate::memory_bus::MemoryBus;
 use crate::opcodes::{ArithmeticTarget, Opcode};
 use crate::registers::Registers;
@@ -10,9 +12,34 @@ struct CPU {
 }
 
 impl CPU {
-    fn execute(&mut self, opcode: Opcode) {
+    fn step(&mut self) {
+        let opcode_byte = self.memory_bus.read_byte(self.pc);
+
+        let is_prefixed = opcode_byte == 0xCB;
+        if is_prefixed {
+            opcode_byte = self.memory_bus.read_byte(self.pc + 1);
+        }
+
+        let next_program_counter: u16 =
+            if let Some(opcode) = Opcode::from_byte(opcode_byte, is_prefixed) {
+                self.execute(opcode)
+            } else {
+                // TODO: panic instead of logging error?
+                let msg = format!("0x{}{:x}", if is_prefixed { "cb" } else { "" }, opcode_byte);
+                error!("Encountered unknown opcode for: {}", msg);
+                warn!(
+                    "Incrementing program counter (current val: {}) by 1 and proceeding",
+                    self.pc
+                );
+                self.pc.wrapping_add(1)
+            };
+
+        self.pc = next_program_counter;
+    }
+
+    fn execute(&mut self, opcode: Opcode) -> u16 {
         match opcode {
-            Opcode::NOP => {}
+            Opcode::NOP => self.pc.wrapping_add(1),
             Opcode::ADD(target) => match target {
                 ArithmeticTarget::A => {}
                 ArithmeticTarget::B => {}
@@ -20,6 +47,7 @@ impl CPU {
                     let value = self.registers.c;
                     let new_value = self.add(value);
                     self.registers.a = new_value;
+                    self.pc.wrapping_add(1)
                 }
                 ArithmeticTarget::D => {}
                 ArithmeticTarget::E => {}
