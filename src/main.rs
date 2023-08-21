@@ -1,5 +1,8 @@
 mod cpu;
+mod flags_register;
+mod memory_bus;
 mod opcodes;
+mod registers;
 mod rom;
 
 use env_logger::Builder;
