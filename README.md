@@ -29,6 +29,7 @@ https://github.com/c-sp/gameboy-test-roms
 * https://gbdev.io/gb-opcodes/optables/
 * https://imrannazar.com/GameBoy-Emulation-in-JavaScript:-The-CPU
 * https://read.cv/mehdi/uNGQ7pgWb2CO1QfJkb1n
+* https://yushiomote.org/posts/gameboy-emu
 
 ### Rust resources
 * https://doc.rust-lang.org/stable/book
