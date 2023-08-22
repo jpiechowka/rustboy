@@ -56,7 +56,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn conversion_to_u8_expected_bits_1111_0000() {
+    fn can_convert_to_u8_expected_bits_1111_0000() {
         let mut flags = FlagsRegister::new();
         flags.zero = true;
         flags.subtract = true;
@@ -67,7 +67,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_to_u8_expected_bits_1110_0000() {
+    fn can_convert_to_u8_expected_bits_1110_0000() {
         let mut flags = FlagsRegister::new();
         flags.zero = true;
         flags.subtract = true;
@@ -77,7 +77,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_to_u8_expected_bits_1100_0000() {
+    fn can_convert_to_u8_expected_bits_1100_0000() {
         let mut flags = FlagsRegister::new();
         flags.zero = true;
         flags.subtract = true;
@@ -86,7 +86,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_to_u8_expected_bits_1000_0000() {
+    fn can_convert_to_u8_expected_bits_1000_0000() {
         let mut flags = FlagsRegister::new();
         flags.zero = true;
         let result: u8 = flags.into();
@@ -94,14 +94,14 @@ mod tests {
     }
 
     #[test]
-    fn conversion_to_u8_expected_bits_0000_0000() {
+    fn can_convert_to_u8_expected_bits_0000_0000() {
         let flags = FlagsRegister::new();
         let result: u8 = flags.into();
         assert_eq!(result, 0b0000_0000u8);
     }
 
     #[test]
-    fn conversion_to_u8_expected_bits_0110_0000() {
+    fn can_convert_to_u8_expected_bits_0110_0000() {
         let mut flags = FlagsRegister::new();
         flags.subtract = true;
         flags.half_carry = true;
@@ -110,7 +110,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_to_u8_expected_bits_1001_0000() {
+    fn can_convert_to_u8_expected_bits_1001_0000() {
         let mut flags = FlagsRegister::new();
         flags.zero = true;
         flags.carry = true;
@@ -119,7 +119,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_1111_0000() {
+    fn can_convert_from_u8_bits_1111_0000() {
         let result: FlagsRegister = 0b1111_0000.into();
         assert!(result.zero);
         assert!(result.subtract);
@@ -128,7 +128,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_1110_0000() {
+    fn can_convert_from_u8_bits_1110_0000() {
         let result: FlagsRegister = 0b1110_0000.into();
         assert!(result.zero);
         assert!(result.subtract);
@@ -137,7 +137,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_1100_0000() {
+    fn can_convert_from_u8_bits_1100_0000() {
         let result: FlagsRegister = 0b1100_0000.into();
         assert!(result.zero);
         assert!(result.subtract);
@@ -146,7 +146,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_1000_0000() {
+    fn can_convert_from_u8_bits_1000_0000() {
         let result: FlagsRegister = 0b1000_0000.into();
         assert!(result.zero);
         assert!(!result.subtract);
@@ -155,7 +155,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_0000_0000() {
+    fn can_convert_from_u8_bits_0000_0000() {
         let result: FlagsRegister = 0b0000_0000.into();
         assert!(!result.zero);
         assert!(!result.subtract);
@@ -164,7 +164,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_0110_0000() {
+    fn can_convert_from_u8_bits_0110_0000() {
         let result: FlagsRegister = 0b0110_0000.into();
         assert!(!result.zero);
         assert!(result.subtract);
@@ -173,7 +173,7 @@ mod tests {
     }
 
     #[test]
-    fn conversion_from_u8_bits_1001_0000() {
+    fn can_convert_from_u8_bits_1001_0000() {
         let result: FlagsRegister = 0b1001_0000.into();
         assert!(result.zero);
         assert!(!result.subtract);
