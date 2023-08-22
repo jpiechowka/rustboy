@@ -54,6 +54,8 @@ cargo build --release
 
 * https://doc.rust-lang.org/stable/book
 * https://doc.rust-lang.org/rust-by-example
+* https://github.com/rust-lang/rustlings/
+* https://doc.rust-lang.org/std/index.html
 * https://www.zero2prod.com
 
 ## License
