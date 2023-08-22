@@ -2,6 +2,21 @@
 
 RustBoy is a GameBoy emulator written in Rust.
 
+## Features
+
+* Logging using `log` and `env_logger` crates
+* Parsing GB opcodes from JSON (https://gbdev.io/gb-opcodes/Opcodes.json) using `serde`
+  * file is included in the binary using `include_str` macro
+  * opcodes are stored as two `HashMap<String, OpcodeDetails>` (`unprefixed` and `cbprefixed` opcodes)
+  * lookup can be done using `.get()` (https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
+
+## Left to do / implement
+
+* CLI with configurable arguments using `clap`
+* Sound
+* Graphics (with upscaling)
+* Everything else
+
 ## Building the emulator
 
 Install Rust (https://www.rust-lang.org/tools/install), then run the commands below:
@@ -20,6 +35,7 @@ https://github.com/c-sp/gameboy-test-roms
 * https://en.wikipedia.org/wiki/Game_Boy
 
 ### GameBoy emulator development
+
 * https://youtu.be/B7seNuQncvU
 * https://youtu.be/HyzD8pNlpwI
 * https://rylev.github.io/DMG-01
@@ -33,11 +49,13 @@ https://github.com/c-sp/gameboy-test-roms
 * https://yushiomote.org/posts/gameboy-emu
 
 ### Rust resources
+
 * https://doc.rust-lang.org/stable/book
 * https://doc.rust-lang.org/rust-by-example
 * https://www.zero2prod.com
 
 ## License
+
 RustBoy is free, open source and permissively licensed! Except where noted (below and/or in individual files), all code in this repository is dual-licensed under either:
 
 * MIT License (`LICENSE-MIT` file or http://opensource.org/licenses/MIT)
@@ -46,4 +64,5 @@ RustBoy is free, open source and permissively licensed! Except where noted (belo
 at your option. This means you can select the license you prefer! This dual-licensing approach is the de-facto standard in the Rust ecosystem.
 
 ## Contributions
+
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
