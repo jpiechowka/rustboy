@@ -28,6 +28,10 @@ cd rustboy
 cargo build --release
 ```
 
+## Running the emulator
+
+TODO: Provide details, flags and arguments for the CLI
+
 ## Test ROMs
 
 * https://github.com/c-sp/gameboy-test-roms
