@@ -29,7 +29,8 @@ cargo build --release
 ```
 
 ## Test ROMs
-https://github.com/c-sp/gameboy-test-roms
+
+* https://github.com/c-sp/gameboy-test-roms
 
 ## Learning resources
 
