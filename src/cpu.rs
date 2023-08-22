@@ -13,7 +13,7 @@ struct CPU {
 
 impl CPU {
     fn step(&mut self) {
-        let opcode_byte = self.memory_bus.read_byte(self.pc);
+        let mut opcode_byte = self.memory_bus.read_byte(self.pc);
 
         let is_prefixed = opcode_byte == 0xCB;
         if is_prefixed {
@@ -41,30 +41,31 @@ impl CPU {
         match opcode {
             Opcode::NOP => self.pc.wrapping_add(1),
             Opcode::ADD(target) => match target {
-                ArithmeticTarget::A => {}
-                ArithmeticTarget::B => {}
+                ArithmeticTarget::A => self.pc.wrapping_add(1), // TODO: implement
+                ArithmeticTarget::B => self.pc.wrapping_add(1), // TODO: implement
                 ArithmeticTarget::C => {
                     let value = self.registers.c;
                     let new_value = self.add(value);
                     self.registers.a = new_value;
                     self.pc.wrapping_add(1)
                 }
-                ArithmeticTarget::D => {}
-                ArithmeticTarget::E => {}
-                ArithmeticTarget::H => {}
-                ArithmeticTarget::L => {}
+                ArithmeticTarget::D => self.pc.wrapping_add(1), // TODO: implement
+                ArithmeticTarget::E => self.pc.wrapping_add(1), // TODO: implement
+                ArithmeticTarget::H => self.pc.wrapping_add(1), // TODO: implement
+                ArithmeticTarget::L => self.pc.wrapping_add(1), // TODO: implement
             },
         }
     }
 
-    fn push_stack(&mut self, value: u16) -> u16 {
-        self.sp = self.sp.wrapping_sub(1);
-        self.memory_bus
-            .write_byte(self.sp, ((value & 0xFF00) >> 8) as u8);
+    // TODO: implement push_stack and memory_bus.write_byte
+    // fn push_stack(&mut self, value: u16) -> u16 {
+    //     self.sp = self.sp.wrapping_sub(1);
+    //     self.memory_bus
+    //         .write_byte(self.sp, ((value & 0xFF00) >> 8) as u8);
 
-        self.sp = self.sp.wrapping_sub(1);
-        self.memory_bus.write_byte(self.sp, (value & 0xFF) as u8);
-    }
+    //     self.sp = self.sp.wrapping_sub(1);
+    //     self.memory_bus.write_byte(self.sp, (value & 0xFF) as u8);
+    // }
 
     fn pop_stack(&mut self) -> u16 {
         let lsb = self.memory_bus.read_byte(self.sp) as u16;
