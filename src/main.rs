@@ -7,13 +7,15 @@ mod registers;
 mod rom;
 
 use clap::Parser;
-use env_logger::Builder;
-use log::{debug, error, info, LevelFilter};
+use env_logger::Env;
+use log::{debug, error, info};
 use opcodes_json::Opcodes;
 use rom::Rom;
 
+const DEFAULT_LOG_LEVEL: &str = "debug";
 const ROM_FILEPATH: &str = "roms/cpu_instrs.gb";
 
+// TODO: CLI
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
@@ -22,10 +24,9 @@ struct Cli {
 }
 
 fn main() {
-    // let cli = Cli::parse(); // TODO: implement CLI
+    env_logger::Builder::from_env(Env::default().default_filter_or(DEFAULT_LOG_LEVEL)).init();
 
-    let mut log_builder = Builder::from_default_env();
-    log_builder.filter_level(LevelFilter::Trace).init(); // TODO: provide way to set this using env var
+    // let cli = Cli::parse(); // TODO: implement CLI
 
     // TODO: move this part of code
     let opcodes = Opcodes::new();
