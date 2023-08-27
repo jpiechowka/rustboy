@@ -23,6 +23,7 @@ RustBoy is a GameBoy emulator written in Rust.
 * Cheats support
 * Automated compiling and releasing binaries for all operating systems
 * Browser support
+* Use vector or some other structure for opcodes instead of HashMap
 * Everything else
 
 ## Building the emulator
