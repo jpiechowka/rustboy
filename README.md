@@ -16,9 +16,13 @@ RustBoy is a GameBoy emulator written in Rust.
 ## Left to do / implement
 
 * CLI with configurable arguments using `clap`
+* Mapping memory from cartridge to RAM
 * Sound
 * Graphics (with upscaling)
+* Real time overview of executed instructions and CPU registers
+* Cheats support
 * Automated compiling and releasing binaries for all operating systems
+* Browser support
 * Everything else
 
 ## Building the emulator
