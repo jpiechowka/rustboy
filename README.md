@@ -26,7 +26,6 @@ RustBoy is a GameBoy emulator written in Rust.
 * Do some basic performance optimizations
   * Add benchmarks
   * Use vector or some other structure for opcodes instead of HashMap (or use faster hashing algo)
-  * Add information about using `RUSTFLAGS` when building release binary (https://nnethercote.github.io/perf-book/build-configuration.html#cpu-specific-instructions)
   * Review and inline hot functions (https://nnethercote.github.io/perf-book/inlining.html)
   * Use String replacement that uses stack instead of allocating on heap
   * Use parallel iterators (rayon crate)
