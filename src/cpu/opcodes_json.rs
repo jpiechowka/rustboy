@@ -54,7 +54,7 @@ pub struct Flags {
 impl Opcodes {
     pub fn new() -> Opcodes {
         info!("Loading opcodes from included JSON");
-        let json_opcodes = include_str!("opcodes/opcodes.json");
+        let json_opcodes = include_str!("../opcodes/opcodes.json");
         let opcodes: Opcodes =
             serde_json::from_str(json_opcodes).expect("should load opcodes form included JSON");
 

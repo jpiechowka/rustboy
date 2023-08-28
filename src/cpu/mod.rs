@@ -1,8 +1,13 @@
-use log::{error, warn};
+// TODO: Check visibility
+mod flags_register;
+mod opcodes; // TODO: Decide which to use
+pub mod opcodes_json; // TODO: Decide which to use
+mod registers;
 
 use crate::memory_bus::MemoryBus;
-use crate::opcodes::{ArithmeticTarget, Opcode};
-use crate::registers::Registers;
+use log::{error, warn};
+use opcodes::{ArithmeticTarget, Opcode};
+use registers::Registers;
 
 struct CPU {
     registers: Registers,

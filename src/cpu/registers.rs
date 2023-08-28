@@ -1,4 +1,4 @@
-use crate::flags_register::FlagsRegister;
+use super::flags_register::FlagsRegister;
 
 pub struct Registers {
     pub a: u8,

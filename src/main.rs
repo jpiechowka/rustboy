@@ -1,16 +1,12 @@
 mod cpu;
-mod flags_register;
 mod memory_bus;
-mod opcodes; // TODO: Decide which to use
-mod opcodes_json; // TODO: Decide which to use
-mod registers;
 mod rom;
 mod utils;
 
 use clap::Parser;
+use cpu::opcodes_json::Opcodes;
 use env_logger::Env;
 use log::{debug, error, info};
-use opcodes_json::Opcodes;
 use rom::Rom;
 
 const DEFAULT_LOG_LEVEL: &str = "debug";
