@@ -42,6 +42,24 @@ cd rustboy
 cargo build --release
 ```
 
+### Using RUSTFLAGS env variable
+
+If you do not care that much about the compatibility of your binary on older (or other types of) processors, you can tell the compiler to generate the newest (and potentially fastest) instructions specific to a certain CPU architecture by using `RUSTFLAGS`environment variable (https://nnethercote.github.io/perf-book/build-configuration.html#cpu-specific-instructions)
+
+```
+RUSTFLAGS="-C target-cpu=native" cargo build --release
+```
+
+The full command to clone and build will be:
+
+```
+git clone https://github.com/jpiechowka/rustboy.git
+cd rustboy
+RUSTFLAGS="-C target-cpu=native" cargo build --release
+```
+
+On Windows you need to follow this pattern: https://superuser.com/a/1049433
+
 ## Running the emulator
 
 TODO: Provide details, flags and arguments for the CLI
