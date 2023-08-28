@@ -5,6 +5,7 @@ mod opcodes; // TODO: Decide which to use
 mod opcodes_json; // TODO: Decide which to use
 mod registers;
 mod rom;
+mod utils;
 
 use clap::Parser;
 use env_logger::Env;
