@@ -23,7 +23,14 @@ RustBoy is a GameBoy emulator written in Rust.
 * Cheats support
 * Automated compiling and releasing binaries for all operating systems
 * Browser support
-* Use vector or some other structure for opcodes instead of HashMap
+* Do some basic performance optimizations
+  * Add benchmarks
+  * Use vector or some other structure for opcodes instead of HashMap (or use faster hashing algo)
+  * Performance oriented build config
+  * Add information about using `RUSTFLAGS` when building release binary (https://nnethercote.github.io/perf-book/build-configuration.html#cpu-specific-instructions)
+  * Review and inline hot functions (https://nnethercote.github.io/perf-book/inlining.html)
+  * Use String replacement that uses stack instead of allocating on heap
+  * Use parallel iterators (rayon crate)
 * Everything else
 
 ## Building the emulator
@@ -68,6 +75,7 @@ TODO: Provide details, flags and arguments for the CLI
 * https://doc.rust-lang.org/rust-by-example
 * https://github.com/rust-lang/rustlings/
 * https://doc.rust-lang.org/std/index.html
+* https://nnethercote.github.io/perf-book/
 * https://www.zero2prod.com
 
 ## License
