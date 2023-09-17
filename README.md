@@ -8,7 +8,7 @@ RustBoy is a GameBoy emulator written in Rust.
 * Parsing GB opcodes from JSON (https://gbdev.io/gb-opcodes/Opcodes.json) using `serde` and `serde_json`
   * file is included in the binary using `include_str` macro
   * opcodes are stored as two `HashMap<String, OpcodeDetails>` (`unprefixed` and `cbprefixed` opcodes)
-  * lookup can be done using `.get()` (https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get)
+  * TODO: info on fetching
 * Logging using `log` and `env_logger` crates
   * Can be controlled by environment variables like `RUST_LOG`
   * For configuration details see https://docs.rs/env_logger/latest/env_logger/
