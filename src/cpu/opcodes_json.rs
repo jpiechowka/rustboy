@@ -16,7 +16,8 @@ pub struct Opcodes {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct OpcodeDetails {
-    pub mnemonic: String, // Illegal opcodes are prefixed with ILLEGAL, (for example: ILLEGAL_D3 from unprefixed)
+    // Illegal opcodes are prefixed with ILLEGAL, (for example: ILLEGAL_D3 from unprefixed)
+    pub mnemonic: String,
     pub bytes: u8,
     pub cycles: Vec<u8>,
     pub operands: Vec<Operand>,
@@ -54,7 +55,7 @@ pub struct Flags {
 impl Opcodes {
     pub fn new() -> Opcodes {
         info!("Loading opcodes from included JSON");
-        let json_opcodes = include_str!("../opcodes/opcodes.json");
+        let json_opcodes = include_str!("../../opcodes/opcodes.json");
         let opcodes: Opcodes =
             serde_json::from_str(json_opcodes).expect("should load opcodes form included JSON");
 
@@ -92,7 +93,7 @@ mod tests {
                     name: "n8".to_string(),
                     bytes: 1,
                     immediate: true,
-                }
+                },
             ]
         );
         assert!(unprefixed_0xCE_opcode.immediate);
@@ -167,7 +168,7 @@ mod tests {
                     name: "n8".to_string(),
                     bytes: 1,
                     immediate: true,
-                }
+                },
             ]
         );
         assert!(opcode.immediate);

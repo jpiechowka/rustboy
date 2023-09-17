@@ -1,18 +1,24 @@
-// TODO: Check visibility
-mod flags_register;
-mod opcodes; // TODO: Decide which to use
-pub mod opcodes_json; // TODO: Decide which to use
-mod registers;
-
-use crate::memory_bus::MemoryBus;
 use log::{error, warn};
+
 use opcodes::{ArithmeticTarget, Opcode};
 use registers::Registers;
 
+use crate::memory_bus::MemoryBus;
+
+// TODO: Check visibility
+mod flags_register;
+mod opcodes;
+// TODO: Decide which to use
+pub mod opcodes_json;
+// TODO: Decide which to use
+mod registers;
+
 struct CPU {
     registers: Registers,
-    sp: u16, // stack pointer
-    pc: u16, // program counter
+    sp: u16,
+    // stack pointer
+    pc: u16,
+    // program counter
     memory_bus: MemoryBus,
 }
 

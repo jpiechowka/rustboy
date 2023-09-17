@@ -1,13 +1,14 @@
+use clap::Parser;
+use env_logger::Env;
+use log::{debug, error, info};
+
+use cpu::opcodes_json::Opcodes;
+use rom::Rom;
+
 mod cpu;
 mod memory_bus;
 mod rom;
 mod utils;
-
-use clap::Parser;
-use cpu::opcodes_json::Opcodes;
-use env_logger::Env;
-use log::{debug, error, info};
-use rom::Rom;
 
 const DEFAULT_LOG_LEVEL: &str = "debug";
 const ROM_FILEPATH: &str = "roms/cpu_instrs.gb";

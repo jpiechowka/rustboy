@@ -1,5 +1,6 @@
-use anyhow::Result;
 use std::fs;
+
+use anyhow::Result;
 
 pub struct Rom {
     // TODO: private, provide methods to operate on raw content?
