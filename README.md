@@ -84,6 +84,8 @@ TODO: Provide details, flags and arguments for the CLI
 * https://imrannazar.com/GameBoy-Emulation-in-JavaScript:-The-CPU
 * https://read.cv/mehdi/uNGQ7pgWb2CO1QfJkb1n
 * https://yushiomote.org/posts/gameboy-emu
+* https://cturt.github.io/cinoop.html
+* https://www.slideshare.net/youtang5/gameboy-emulator-in-rust-and-web-assembly
 
 ### Rust resources
 
