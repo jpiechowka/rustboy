@@ -1,24 +1,25 @@
+use std::path::PathBuf;
+
 use clap::Parser;
 use env_logger::Env;
 use log::{debug, error, info};
 
-use cpu::opcodes_json::Opcodes;
-use rom::Rom;
-
-mod cpu;
-mod memory_bus;
-mod rom;
-mod utils;
+use rustboy::cpu::opcodes_json::Opcodes;
+use rustboy::rom::Rom;
 
 const DEFAULT_LOG_LEVEL: &str = "debug";
 const ROM_FILEPATH: &str = "roms/cpu_instrs.gb";
 
-// TODO: CLI
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
-    #[arg(short, long)]
-    rom_path: String,
+    /// Sets a path to the ROM file to run
+    #[arg(short, long, value_name = "FILE")]
+    rom_path: Option<PathBuf>,
+
+    /// Sets the render resolution scaling in range [1-10]
+    #[arg(short, long, default_value_t = 1)]
+    render_scale: u8,
 }
 
 fn main() {
